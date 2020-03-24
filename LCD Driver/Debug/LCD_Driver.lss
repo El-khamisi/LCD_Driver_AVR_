@@ -1,0 +1,457 @@
+
+LCD_Driver.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001dc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000001a  00800060  000001dc  00000250  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  0000026a  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000029c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000068  00000000  00000000  000002d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000d4c  00000000  00000000  00000340  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006ba  00000000  00000000  0000108c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000440  00000000  00000000  00001746  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000c8  00000000  00000000  00001b88  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000384  00000000  00000000  00001c50  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000007c9  00000000  00000000  00001fd4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  0000279d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec ed       	ldi	r30, 0xDC	; 220
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	aa 37       	cpi	r26, 0x7A	; 122
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 41 00 	call	0x82	; 0x82 <main>
+  7a:	0c 94 ec 00 	jmp	0x1d8	; 0x1d8 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <main>:
+
+
+int main(void)
+{					//Write Your code right here
+	
+	initialization();
+  82:	0e 94 75 00 	call	0xea	; 0xea <initialization>
+	
+	text("Welcome Keep    Smile ;)");
+  86:	80 e6       	ldi	r24, 0x60	; 96
+  88:	90 e0       	ldi	r25, 0x00	; 0
+  8a:	0e 94 c9 00 	call	0x192	; 0x192 <text>
+  8e:	ff cf       	rjmp	.-2      	; 0x8e <main+0xc>
+
+00000090 <command>:
+
+
+
+
+volatile void command (volatile uint8_t cmd)
+{
+  90:	cf 93       	push	r28
+  92:	df 93       	push	r29
+  94:	1f 92       	push	r1
+  96:	cd b7       	in	r28, 0x3d	; 61
+  98:	de b7       	in	r29, 0x3e	; 62
+  9a:	89 83       	std	Y+1, r24	; 0x01
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+  9c:	85 b3       	in	r24, 0x15	; 21
+  9e:	8f 7b       	andi	r24, 0xBF	; 191
+  a0:	85 bb       	out	0x15, r24	; 21
+	
+	}
+	else if (mod == 4)
+	{
+		
+		*(volatile uint8_t *)(Data_Pins+1)=cmd & 0xf0 ;
+  a2:	99 81       	ldd	r25, Y+1	; 0x01
+  a4:	90 7f       	andi	r25, 0xF0	; 240
+  a6:	92 bb       	out	0x12, r25	; 18
+
+void write_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+  a8:	80 68       	ori	r24, 0x80	; 128
+  aa:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ac:	85 e0       	ldi	r24, 0x05	; 5
+  ae:	8a 95       	dec	r24
+  b0:	f1 f7       	brne	.-4      	; 0xae <command+0x1e>
+  b2:	00 00       	nop
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+  b4:	af 98       	cbi	0x15, 7	; 21
+  b6:	8f e8       	ldi	r24, 0x8F	; 143
+  b8:	91 e0       	ldi	r25, 0x01	; 1
+  ba:	01 97       	sbiw	r24, 0x01	; 1
+  bc:	f1 f7       	brne	.-4      	; 0xba <command+0x2a>
+  be:	00 c0       	rjmp	.+0      	; 0xc0 <command+0x30>
+  c0:	00 00       	nop
+		*(volatile uint8_t *)(Data_Pins+1)=cmd & 0xf0 ;
+		write_pin(Enable_port, Enable_pin, high);
+		_delay_us(1);
+		write_pin(Enable_port, Enable_pin, low);
+		_delay_us(100);
+		*(volatile uint8_t *)(Data_Pins+1)=cmd<<4 ;
+  c2:	89 81       	ldd	r24, Y+1	; 0x01
+  c4:	82 95       	swap	r24
+  c6:	80 7f       	andi	r24, 0xF0	; 240
+  c8:	82 bb       	out	0x12, r24	; 18
+
+void write_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+  ca:	af 9a       	sbi	0x15, 7	; 21
+  cc:	95 e0       	ldi	r25, 0x05	; 5
+  ce:	9a 95       	dec	r25
+  d0:	f1 f7       	brne	.-4      	; 0xce <command+0x3e>
+  d2:	00 00       	nop
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+  d4:	af 98       	cbi	0x15, 7	; 21
+  d6:	8f e8       	ldi	r24, 0x8F	; 143
+  d8:	91 e0       	ldi	r25, 0x01	; 1
+  da:	01 97       	sbiw	r24, 0x01	; 1
+  dc:	f1 f7       	brne	.-4      	; 0xda <command+0x4a>
+  de:	00 c0       	rjmp	.+0      	; 0xe0 <command+0x50>
+  e0:	00 00       	nop
+	write_pin(Enable_port, Enable_pin, high);
+	_delay_us(1);
+	write_pin(Enable_port, Enable_pin, low);
+	_delay_us(100);
+	
+}
+  e2:	0f 90       	pop	r0
+  e4:	df 91       	pop	r29
+  e6:	cf 91       	pop	r28
+  e8:	08 95       	ret
+
+000000ea <initialization>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ea:	8f e5       	ldi	r24, 0x5F	; 95
+  ec:	9a ee       	ldi	r25, 0xEA	; 234
+  ee:	01 97       	sbiw	r24, 0x01	; 1
+  f0:	f1 f7       	brne	.-4      	; 0xee <initialization+0x4>
+  f2:	00 c0       	rjmp	.+0      	; 0xf4 <initialization+0xa>
+  f4:	00 00       	nop
+
+void setup_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port)|= (1<<pin);
+  f6:	84 b3       	in	r24, 0x14	; 20
+volatile void initialization()
+{
+	_delay_ms(15);
+	
+	setup_pin(RS_port, RS_pin, output);
+	*(volatile uint8_t *)(Data_Pins)=0xff;
+  f8:	9f ef       	ldi	r25, 0xFF	; 255
+  fa:	91 bb       	out	0x11, r25	; 17
+
+void setup_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port)|= (1<<pin);
+  fc:	80 6c       	ori	r24, 0xC0	; 192
+  fe:	84 bb       	out	0x14, r24	; 20
+	
+	setup_pin(RS_port, RS_pin, output);
+	*(volatile uint8_t *)(Data_Pins)=0xff;
+	setup_pin(Enable_port, Enable_pin, output);
+	
+	*(volatile uint8_t *)(Data_Pins+1)=0x00;
+ 100:	12 ba       	out	0x12, r1	; 18
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+ 102:	af 98       	cbi	0x15, 7	; 21
+	{
+		command(0x38);
+	}
+	else if (mod == 4)
+	{
+		command(0x33);
+ 104:	83 e3       	ldi	r24, 0x33	; 51
+ 106:	0e 94 48 00 	call	0x90	; 0x90 <command>
+		command(0x32);
+ 10a:	82 e3       	ldi	r24, 0x32	; 50
+ 10c:	0e 94 48 00 	call	0x90	; 0x90 <command>
+		command(0x28);
+ 110:	88 e2       	ldi	r24, 0x28	; 40
+ 112:	0e 94 48 00 	call	0x90	; 0x90 <command>
+	}
+	
+	command(0x0e);
+ 116:	8e e0       	ldi	r24, 0x0E	; 14
+ 118:	0e 94 48 00 	call	0x90	; 0x90 <command>
+	command(0x01);
+ 11c:	81 e0       	ldi	r24, 0x01	; 1
+ 11e:	0e 94 48 00 	call	0x90	; 0x90 <command>
+ 122:	8f e3       	ldi	r24, 0x3F	; 63
+ 124:	9f e1       	ldi	r25, 0x1F	; 31
+ 126:	01 97       	sbiw	r24, 0x01	; 1
+ 128:	f1 f7       	brne	.-4      	; 0x126 <initialization+0x3c>
+ 12a:	00 c0       	rjmp	.+0      	; 0x12c <initialization+0x42>
+ 12c:	00 00       	nop
+	_delay_ms(2);
+	command(0x06);
+ 12e:	86 e0       	ldi	r24, 0x06	; 6
+ 130:	0e 94 48 00 	call	0x90	; 0x90 <command>
+ 134:	08 95       	ret
+
+00000136 <charr>:
+	
+}
+
+
+volatile void charr ( volatile char c)
+{
+ 136:	cf 93       	push	r28
+ 138:	df 93       	push	r29
+ 13a:	1f 92       	push	r1
+ 13c:	cd b7       	in	r28, 0x3d	; 61
+ 13e:	de b7       	in	r29, 0x3e	; 62
+ 140:	89 83       	std	Y+1, r24	; 0x01
+
+void write_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+ 142:	85 b3       	in	r24, 0x15	; 21
+ 144:	98 2f       	mov	r25, r24
+ 146:	90 64       	ori	r25, 0x40	; 64
+ 148:	95 bb       	out	0x15, r25	; 21
+		*(volatile uint8_t *)(Data_Pins+1)=c;
+		
+	}
+	else if (mod == 4)
+	{
+		*(volatile uint8_t *)(Data_Pins+1)=c & 0xf0;	
+ 14a:	99 81       	ldd	r25, Y+1	; 0x01
+ 14c:	90 7f       	andi	r25, 0xF0	; 240
+ 14e:	92 bb       	out	0x12, r25	; 18
+
+void write_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+ 150:	80 6c       	ori	r24, 0xC0	; 192
+ 152:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 154:	85 e0       	ldi	r24, 0x05	; 5
+ 156:	8a 95       	dec	r24
+ 158:	f1 f7       	brne	.-4      	; 0x156 <charr+0x20>
+ 15a:	00 00       	nop
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+ 15c:	af 98       	cbi	0x15, 7	; 21
+ 15e:	8f e8       	ldi	r24, 0x8F	; 143
+ 160:	91 e0       	ldi	r25, 0x01	; 1
+ 162:	01 97       	sbiw	r24, 0x01	; 1
+ 164:	f1 f7       	brne	.-4      	; 0x162 <charr+0x2c>
+ 166:	00 c0       	rjmp	.+0      	; 0x168 <charr+0x32>
+ 168:	00 00       	nop
+		*(volatile uint8_t *)(Data_Pins+1)=c & 0xf0;	
+		write_pin(Enable_port, Enable_pin, high);
+		_delay_us(1);
+		write_pin(Enable_port, Enable_pin, low);
+		_delay_us(100);
+		*(volatile uint8_t *)(Data_Pins+1)=c<<4;
+ 16a:	89 81       	ldd	r24, Y+1	; 0x01
+ 16c:	82 95       	swap	r24
+ 16e:	80 7f       	andi	r24, 0xF0	; 240
+ 170:	82 bb       	out	0x12, r24	; 18
+
+void write_pin(uint8_t port , uint8_t pin, uint8_t state)
+{
+	if (state)
+	{
+		*(uint8_t *) (port+1)|= (1<<pin);
+ 172:	af 9a       	sbi	0x15, 7	; 21
+ 174:	95 e0       	ldi	r25, 0x05	; 5
+ 176:	9a 95       	dec	r25
+ 178:	f1 f7       	brne	.-4      	; 0x176 <charr+0x40>
+ 17a:	00 00       	nop
+	}
+	else
+	*(uint8_t *) (port+1)&= ~(1<<pin);
+ 17c:	af 98       	cbi	0x15, 7	; 21
+ 17e:	8f e8       	ldi	r24, 0x8F	; 143
+ 180:	91 e0       	ldi	r25, 0x01	; 1
+ 182:	01 97       	sbiw	r24, 0x01	; 1
+ 184:	f1 f7       	brne	.-4      	; 0x182 <charr+0x4c>
+ 186:	00 c0       	rjmp	.+0      	; 0x188 <charr+0x52>
+ 188:	00 00       	nop
+	}
+	write_pin(Enable_port, Enable_pin, high);
+	_delay_us(1);
+	write_pin(Enable_port, Enable_pin, low);
+	_delay_us(100);
+}
+ 18a:	0f 90       	pop	r0
+ 18c:	df 91       	pop	r29
+ 18e:	cf 91       	pop	r28
+ 190:	08 95       	ret
+
+00000192 <text>:
+
+
+volatile void text(char *str)
+{
+ 192:	0f 93       	push	r16
+ 194:	1f 93       	push	r17
+ 196:	cf 93       	push	r28
+ 198:	8c 01       	movw	r16, r24
+	uint8_t i=0;
+	while(str[i] != 0 )
+ 19a:	fc 01       	movw	r30, r24
+ 19c:	80 81       	ld	r24, Z
+ 19e:	81 11       	cpse	r24, r1
+ 1a0:	13 c0       	rjmp	.+38     	; 0x1c8 <text+0x36>
+ 1a2:	0e c0       	rjmp	.+28     	; 0x1c0 <text+0x2e>
+	{
+		charr(str[i]);
+ 1a4:	0e 94 9b 00 	call	0x136	; 0x136 <charr>
+		if (i == 15)
+ 1a8:	cf 30       	cpi	r28, 0x0F	; 15
+ 1aa:	19 f4       	brne	.+6      	; 0x1b2 <text+0x20>
+		{
+			command(0xC0);
+ 1ac:	80 ec       	ldi	r24, 0xC0	; 192
+ 1ae:	0e 94 48 00 	call	0x90	; 0x90 <command>
+		}
+		i++;
+ 1b2:	cf 5f       	subi	r28, 0xFF	; 255
+
+
+volatile void text(char *str)
+{
+	uint8_t i=0;
+	while(str[i] != 0 )
+ 1b4:	f8 01       	movw	r30, r16
+ 1b6:	ec 0f       	add	r30, r28
+ 1b8:	f1 1d       	adc	r31, r1
+ 1ba:	80 81       	ld	r24, Z
+ 1bc:	81 11       	cpse	r24, r1
+ 1be:	f2 cf       	rjmp	.-28     	; 0x1a4 <text+0x12>
+		{
+			command(0xC0);
+		}
+		i++;
+	}
+	command(0xF);
+ 1c0:	8f e0       	ldi	r24, 0x0F	; 15
+ 1c2:	0e 94 48 00 	call	0x90	; 0x90 <command>
+ 1c6:	04 c0       	rjmp	.+8      	; 0x1d0 <text+0x3e>
+volatile void text(char *str)
+{
+	uint8_t i=0;
+	while(str[i] != 0 )
+	{
+		charr(str[i]);
+ 1c8:	0e 94 9b 00 	call	0x136	; 0x136 <charr>
+ 1cc:	c0 e0       	ldi	r28, 0x00	; 0
+ 1ce:	f1 cf       	rjmp	.-30     	; 0x1b2 <text+0x20>
+			command(0xC0);
+		}
+		i++;
+	}
+	command(0xF);
+ 1d0:	cf 91       	pop	r28
+ 1d2:	1f 91       	pop	r17
+ 1d4:	0f 91       	pop	r16
+ 1d6:	08 95       	ret
+
+000001d8 <_exit>:
+ 1d8:	f8 94       	cli
+
+000001da <__stop_program>:
+ 1da:	ff cf       	rjmp	.-2      	; 0x1da <__stop_program>
