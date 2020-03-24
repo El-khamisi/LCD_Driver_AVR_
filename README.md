@@ -11,7 +11,7 @@ For defines(that is where you can customize POTRs & Pins) , implementation of ne
 
 
 
-
+#included suggested linking of LCD to Atmega32
 
 NOTE: attach VEE to potentiometer to Adjust contrast in simulation I attached this to GND 
 Also,...I assumed that I will be write to screen only so I attached R/W pin to GND
