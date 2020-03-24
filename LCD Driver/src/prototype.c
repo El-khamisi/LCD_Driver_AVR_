@@ -37,19 +37,22 @@ volatile void initialization()
 	_delay_ms(15);
 	
 	setup_pin(RS_port, RS_pin, output);
-	*(volatile uint8_t *)(Data_Pins)=0xff;
 	setup_pin(Enable_port, Enable_pin, output);
 	
-	*(volatile uint8_t *)(Data_Pins+1)=0x00;
 	write_pin(Enable_port, Enable_pin, low);
 	
 	
 	if (mod == 8)
 	{
+		*(volatile uint8_t *)(Data_Pins)=0xff;
+		*(volatile uint8_t *)(Data_Pins+1)=0x00;
+		
 		command(0x38);
 	}
 	else if (mod == 4)
 	{
+		*(volatile uint8_t *)(Data_Pins) = 0xf0;
+		*(volatile uint8_t *)(Data_Pins+1)=0x00;
 		command(0x33);
 		command(0x32);
 		command(0x28);
