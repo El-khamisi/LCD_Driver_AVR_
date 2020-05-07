@@ -7,7 +7,7 @@ the driver has flexibility to connect LCD 5x7matrix (D4-D7, 4bit) "OR" 5x7matrix
 
 I separated the Project into: header file "prototype.h" -- implementation file "prototype.c" -- MainProgram "main.c"
 
-For defines(that is where you can customize POTRs & Pins) , implementation of needed function and main program respectively.
+For defines(that is where you can customize PORTs & Pins) , implementation of needed function and main program respectively.
 
 
 
